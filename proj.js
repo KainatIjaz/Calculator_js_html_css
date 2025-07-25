@@ -1,56 +1,55 @@
-let input=document.getElementById("expression")
-let output=document.getElementById("output")
+let input = document.getElementById("expression");
+let output = document.getElementById("output");
 
-/*
+const buttons = document.querySelectorAll("#buttons button");
 
-const buttons=document.querySelectorAll("#buttons button");
-for(let i=0;i<buttons.length;i++)
-{
-    buttons[i].addEventListener("click", function () 
-    {
+for (let i = 0; i < buttons.length; i++) {
+  buttons[i].addEventListener("click", function () {
     const value = buttons[i].textContent;
 
-    if (value === "=") 
-    {
+    if (value === "=") {
       const expression = input.value.trim();
-      try 
-      {
+      try {
         const result = evaluate(expression);
-        output.textContent = result.toFixed(4);
-      } 
-      catch (error) 
-      {
+        output.textContent = result.toFixed(4);  
+      } catch (error) {
         output.textContent = "Error";
       }
-    } 
-    else 
+    }
+    else if (value === "C") 
     {
+      input.value = "";
+      output.textContent = "";
+    } 
+    else if (value === "B") {
+      input.value = input.value.slice(0, -1);
+    } 
+    else {
       input.value += value;
     }
-  }
-)
-};
-*/
-
-
-input.addEventListener("keydown", function(event)
+  });
+}
+input.addEventListener("keydown",function(event)
 {
-    if(event.key=="Enter")
-    {
-        let expression =input.value.trim();
-        output.textContent=expression;
-        try 
-        {
-            let result= evaluate(expression);
-            output.textContent = result;
-        }
-        catch
-        {
-            output.textContent= "Error";
-        }
-    }
-});
+const allowed_keys=['1','2','3','4','5','6','7','8','9','0','/','*','+','-','(',')','Backspace','ArrowLeft','ArrowRight'];
+if(!allowed_keys.includes(event.key))
+{
+    event.preventDefault();
+}
 
+if(event.key=='Enter')
+{
+try
+{
+    const expression=input.value.trim();
+    const result=evaluate(expression);
+    output,this.textContent=result.toFixed(4);
+}
+catch(error)
+{
+    output.textContent='Error'
+}
+}})
 
 function evaluate(expr){
     // trim removed spaces from start and end to remove spaces in between(/\s+) throughout the expreesion (/g)

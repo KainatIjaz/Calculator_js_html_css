@@ -1,0 +1,40 @@
+body{
+    margin: 0;
+    padding:0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:100vh;
+    background-color:aliceblue
+}
+
+.calculator {
+  text-align: center;
+}
+
+#expression {
+  width: 90%;
+  padding: 10px;
+  font-size: 1.2em;
+}
+
+#buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 60px);
+  gap: 10px;
+  justify-content: center;
+  margin: 20px auto;
+}
+
+#buttons button {
+  padding: 15px;
+  font-size: 1em;
+  background-color: #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#output {
+  margin-top: 10px;
+  font-size: 1.5em;
+}

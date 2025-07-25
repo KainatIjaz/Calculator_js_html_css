@@ -29,10 +29,11 @@ body{
 #buttons button {
   padding: 15px;
   font-size: 1em;
-  background-color: #ddd;
+  background-color: #c4c1c1a9;
   border-radius: 5px;
   cursor: pointer;
 }
+
 
 #output {
   margin-top: 10px;
